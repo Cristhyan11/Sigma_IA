@@ -1,0 +1,7 @@
+Pillow
+pydicom
+numpy
+sqlalchemy
+psycopg2-binary
+scikit-learn
+opencv-python
