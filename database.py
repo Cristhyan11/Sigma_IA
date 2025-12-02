@@ -16,22 +16,28 @@ class ImageRecord(Base):
     original_path = Column(String, nullable=False)
     
     # Campos de clasificación
-    study_type = Column(String) # O.C.T, Foco principal, etc.
-    quality = Column(String)    # Buena, Regular, Mala
-    is_centered = Column(Boolean)
+    study_type = Column(String) 
+    laterality = Column(String) 
+
+    # Evaluación Técnica
+    sharpness = Column(String) # Nitidez
+    illumination = Column(String) # Iluminación
+    centering = Column(String) # Centrado
+    field_of_view = Column(String) # Campo de visión
     
-    # Campos adicionales sugeridos
-    laterality = Column(String) # OD (Derecho), OS (Izquierdo)
-    diagnosis = Column(String)  # Normal, Patológico, etc.
-    diagnosis_detail = Column(String) # Detalle del diagnóstico (ej. Retinopatía Diabética)
-    severity = Column(String) # Leve, Moderada, Severa
-    artifacts = Column(String) # Lista de artefactos separados por coma
+    # Problemas
+    artifacts = Column(String) # Artefactos
+    obstructions = Column(String) # Obstrucciones
+    
+    # Conclusión
+    quality = Column(String) # Gradabilidad (Grado A, B, No gradable)
+    diagnostic_utility = Column(String) # Útil, Limitada, No útil
     
     validation_status = Column(String, default="Pending") # Pending, Validated
     created_at = Column(DateTime, default=datetime.utcnow)
     doctor_notes = Column(String)
 
-def init_db(connection_string='sqlite:///local_data.db'):
+def init_db(connection_string='sqlite:///local_medical_data.db'):
     """
     Inicializa la base de datos.
     Para la nube, cambiar connection_string a algo como:

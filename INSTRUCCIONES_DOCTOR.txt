@@ -1,0 +1,45 @@
+GUÍA DE USO - CLASIFICADOR DE IMÁGENES OFTALMOLÓGICAS
+=======================================================
+
+Este software permite la validación técnica y clasificación de imágenes médicas (Retinografías, OCT, etc.).
+
+REQUISITOS PREVIOS:
+1. Tener Python instalado (versión 3.8 o superior).
+2. Instalar las dependencias ejecutando en la terminal:
+   pip install -r requirements.txt
+
+INSTRUCCIONES DE USO:
+---------------------
+
+1. INICIAR EL PROGRAMA:
+   - Haga doble clic en el archivo 'open.bat' (en Windows).
+   - O ejecute en terminal: python main.py
+
+2. CARGAR IMÁGENES:
+   - Presione el botón "Seleccionar Carpeta".
+   - Elija la carpeta que contiene las imágenes a evaluar.
+
+3. CLASIFICACIÓN:
+   - La imagen aparecerá en el panel izquierdo.
+   - En el panel derecho, complete la "Evaluación Técnica":
+     * Tipo de Estudio y Lateralidad.
+     * Nitidez, Iluminación, Centrado, etc.
+     * Marque los Artefactos presentes (Reflejos, Sombras, etc.).
+     * Determine la Calidad Global y Utilidad Diagnóstica.
+   - (Opcional) Añada notas si hay hallazgos inusuales.
+
+4. NAVEGACIÓN:
+   - Use "Siguiente" y "Anterior" para moverse por las imágenes.
+   - El sistema guarda automáticamente sus selecciones en memoria temporal.
+
+5. GUARDAR PROGRESO:
+   - Cuando termine un bloque de trabajo, presione "Guardar Todo el Lote".
+   - Esto guardará los datos en la base de datos y organizará los archivos en la carpeta 'Clasificadas'.
+
+6. EXPORTAR DATOS (AL FINALIZAR):
+   - Para obtener la tabla final de resultados, ejecute el archivo 'export_data.py'.
+   - Esto generará un archivo 'dataset_labels.csv' con toda la información lista para análisis.
+
+NOTAS IMPORTANTES:
+- Si necesita reiniciar todo el trabajo desde cero, ejecute 'reset_data.py' (¡CUIDADO! Esto borra todo lo avanzado).
+- Las imágenes originales NO se modifican. El programa trabaja con copias.
